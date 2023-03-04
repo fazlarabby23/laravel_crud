@@ -26,6 +26,8 @@
      @yield('main-content')
      @yield('product-add')
      @yield('show-product')
+     @yield('category-add')
+
 </div>
 </div>
 <!--end page wrapper -->

@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\backend\Dashboard;
 use App\Http\Controllers\Backend\ControllerProduct;
+use App\Http\Controllers\Backend\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,6 +38,8 @@ Route::get('/inactiveproduct/{id}',[ControllerProduct::class,'inactive'])->name(
 Route::get('/editproduct/{id}',[ControllerProduct::class,'edit'])->name('editproduct');
 
 Route::post('/updateproduct/{id}',[ControllerProduct::class,'update'])->name('updateproduct');
+
+Route::get('/addcategory',[CategoryController::class,'index'])->name('addcategory');
 
 
 
