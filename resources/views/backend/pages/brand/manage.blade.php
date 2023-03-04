@@ -35,27 +35,51 @@
                     </tr>
                 </thead>
                 <tbody >
+                    <?php $sl=1 ;?>
+                    @foreach($products as $product)
 
-                    <?php $index = 1; ?>
-                    <?php foreach ($products as $data) : ?>
-                        <tr>
-                            <td>{{$index++}}  </td>
-                            <td>{{$data->name}}  </td>
-                            <td>{{$data->description}}  </td>
-                            <td>{{$data->price }} </td>
-                            <td>{{$data->quantity}}  </td>
-                            <td>{{$data->status}}  </td>
-                            <td>
-        <a href="" class="btn btn-info btn-sm">Edit</a>
-        <a href="{{ route('deleteproduct', $data->id) }}" class="btn btn-danger btn-sm">Delete</a>
-                            </td>
-                        </tr>
-                    <?php endforeach; ?>
-                    <?php if (empty($products)) : ?>
-                        <tr>
-                            <td colspan="7">No products found.</td>
-                        </tr>
-                    <?php endif; ?>
+
+
+                    <tr>
+                        <td>{{$sl++}}</td>
+                        <td>{{ $product->name }}</td>
+                        <td>{{ $product->description }}</td>
+                        <td>{{ $product->price }}</td>
+                        <td>{{ $product->quantity }}</td>
+                        <td>
+                            @if($product->status == 1)
+                                <a href="{{ route('activeproduct',$product->id) }}" class="btn btn-success btn-sm">Active</a>
+                            @else
+                                <a href="{{ route('inactiveproduct',$product->id) }}" class="btn btn-info btn-sm">InActive</a>
+                            @endif
+
+                        </td>
+                        <td>
+    <a href="{{route('editproduct',$product->id)}}" class="btn btn-warning btn-sm">Edit</a>
+    <button data-bs-toggle="modal" data-bs-target="#delete{{$product->id}}" class="btn btn-danger btn-sm">Delete</button>
+                        </td>
+                    </tr>
+
+                    <!--modal-->
+                <div class="modal fade" id="delete{{$product->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Confirmation message</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">Are you sure want to Delete?</div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+<a href="{{ route('deleteproduct',$product->id) }}" type="button" class="btn btn-primary">Delete</a>
+                        </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    @endforeach
+
 
                 </tbody>
                 <tfoot>

@@ -34,6 +34,39 @@ class ControllerProduct extends Controller
         $product->delete();
         return back();
     }
+    public function active($id){
+        $product = Product::find($id);
+        $product->status = '2';
+        $product->update();
+        return back();
+    }
+    public function inactive($id){
+        $product = Product::find($id);
+        $product->status = '1';
+        $product->update();
+        return back();
+    }
+    public function edit($id){
+        $product = Product::find($id);
+        return view('backend.pages.brand.edit',compact('product'));
+
+    }
+    public function update(Request $request,$id){
+        $product = Product::find($id);
+        $product->name=$request->name;
+        $product->description=$request->description;
+        $product->price=$request->price;
+        $product->quantity=$request->quantity;
+        $product->status=$request->status;
+        $product->update();
+        return redirect()->route('showproduct');;
+
+    }
+
+
+
+
+
 
 
 }
