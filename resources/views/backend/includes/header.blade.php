@@ -324,10 +324,10 @@
 </div>
             <div class="user-box dropdown">
                 <a class="d-flex align-items-center nav-link dropdown-toggle dropdown-toggle-nocaret" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    <img src="{{asset('backend')}}/assets/images/avatars/avatar-2.png" class="user-img" alt="user avatar">
+                    <img src="{{asset('asset')}}/images/fy.png" class="user-img" alt="user avatar">
                     <div class="user-info ps-3">
-                        <p class="user-name mb-0">Pauline Seitz</p>
-                        <p class="designattion mb-0">Web Designer</p>
+                        <p class="user-name mb-0">Fazla Rabby</p>
+                        <p class="designattion mb-0">Web Developer</p>
                     </div>
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end">

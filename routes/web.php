@@ -5,6 +5,7 @@ use App\Http\Controllers\backend\Dashboard;
 use App\Http\Controllers\Backend\ControllerProduct;
 use App\Http\Controllers\Backend\CategoryController;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
